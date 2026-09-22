@@ -1,0 +1,16 @@
+---
+title: "Workshop3"
+output: html_document
+date: "2026-09-21"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#to connect the rfile to github 
+credentials::git_credential_ask()
+usethis::git_sitrep()
+
+```
