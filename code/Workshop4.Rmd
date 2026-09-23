@@ -69,7 +69,14 @@ plot3
 ```
 
 ```{r}
-
-
+#Show me how to load the built-in iris dataset and use ggplot2 to build a scatter plot of Sepal.Length versus Sepal.Width colored by Species
+plot5 <- ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
+  geom_point(size = 3) +
+  theme_minimal() +
+  labs(title = "Sepal Length vs Sepal Width in Iris Dataset",
+       x = "Sepal Length (cm)",
+       y = "Sepal Width (cm)",
+       color = "Species")
+plot5
 
 
