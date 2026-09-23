@@ -10,3 +10,66 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
+#loading packages and palmerpenguins to use as for a dataset 
+library(tidyverse)
+library(palmerpenguins)
+```
+
+```{r}
+
+#using copilot to generate a ggplt scatter plot using penguins dataset
+#plot bill_length_mm on the x-axis and bill_depth_mm on the y-axis
+#colour points by species and use geom_point with size 3
+#add minimal theme and clean labels
+
+plot <- ggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm, color = species)) +
+  geom_point(size = 3) +
+  theme_minimal() +
+  labs(title = "Bill Length vs Bill Depth in Penguins",
+       x = "Bill Length (mm)",
+       y = "Bill Depth (mm)",
+       color = "Species")
+
+plot
+
+```
+
+```{r}
+#generate a boxplot comparing flipper_length_mm across different species, faceted by island, using custom colour palettes 
+
+plot2 <- ggplot(data = penguins, aes(x = species, y = flipper_length_mm, fill = species)) +
+  geom_boxplot() +
+  facet_wrap(~ island) +
+  scale_fill_manual(values = c("Adelie" = "#1f77b4", "Chinstrap" = "#ff7f0e", "Gentoo" = "#2ca02c")) +
+  theme_minimal() +
+  labs(title = "Flipper Length by Species and Island",
+       x = "Species",
+       y = "Flipper Length (mm)",
+       fill = "Species")
+
+plot2
+```
+
+```{r}
+penguins
+#generate a smooth line plot of the penguins data set 
+#x-axis is body mass and y-axis is bill length, colour lines by species 
+#include the range of standard error 
+#add theme classic and clean labels 
+
+plot3 <- ggplot(data = penguins, aes(x = body_mass_g, y = bill_length_mm, color = species)) +
+  geom_smooth(method = "loess", se = TRUE) +
+  theme_classic() +
+  labs(title = "Bill Length vs Body Mass in Penguins",
+       x = "Body Mass (g)",
+       y = "Bill Length (mm)",
+       color = "Species")
+plot3
+
+```
+
+```{r}
+
+
+
+
